@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using static System.Console;
+class Hello
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello,world!");
+    }
+}
