@@ -1,8 +1,9 @@
 ﻿using static System.Console;
-class Hello
+class DisplaySomeMoney2
 {
     static void Main()
     {
-        WriteLine("Hello, world!");
+        double someMoney = 39.45;
+        WriteLine(someMoney);
     }
 }
