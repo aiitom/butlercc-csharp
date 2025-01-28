@@ -4,6 +4,6 @@ class DisplaySomeMoney2
     static void Main()
     {
         double someMoney = 39.45;
-        WriteLine(someMoney);
+        WriteLine("This money is $" + someMoney);
     }
 }
