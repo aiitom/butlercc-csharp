@@ -4,15 +4,17 @@ class DemoVariables
 {
     static void Main()
     {
-        const double TAX_RATE = 0.06;
-        string itemPriceAsString;
-        double itemPrice;
-        double total;
-        Write("Enter the price of an item >> ");
-        itemPriceAsString = ReadLine();
-        itemPrice = Convert.ToDouble(itemPriceAsString);
-        total = itemPrice * TAX_RATE;
-        WriteLine("With a tax rate of {0}, a {1} item " +
-            "cost {2} more.", TAX_RATE, itemPrice.ToString("C"), total.ToString("C"));
+        string name, firstString, secondString;
+        int first, second, sum;
+        Write("Enter your name... ");
+        name = ReadLine();
+        Write("Hello {0}! Enter the first integer... ", name);
+        firstString = ReadLine();
+        first = Int32.Parse(firstString);
+        Write("Enter the second integer... ");
+        secondString = ReadLine();
+        second = Int32.Parse(secondString);
+        sum = first + second;
+        WriteLine("{0}, the sum of {1} and {2} is {3}", name, first, second, sum);
     }
 }
