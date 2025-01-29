@@ -1,6 +1,6 @@
 ﻿using System;
 using static System.Console;
-using static System.String;
+using static System.String; //add this line when using Compare()
 class DemoVariables
 {
     static void Main()
