@@ -1,19 +1,18 @@
 ﻿using System;
 using static System.Console;
-using static System.String; //add this line when using Compare()
 class DemoVariables
 {
     static void Main()
     {
-        string name1 = "Amy";
-        string name2 = "Amy";
-        string name3 = "Matthew";
-        Console.WriteLine("{0} to {1}; Equals() method gives {2}", name1, name2, name1.Equals(name2));
-        Console.WriteLine("{0} to {1}; Equals() method gives {2}", name1, name3, name1.Equals(name3));
-        Console.WriteLine("{0} to {1}; CompareTo() method gives {2}", name1, name2, name1.CompareTo(name2));
-        Console.WriteLine("{0} to {1}; CompareTo() method gives {2}", name1, name2, name1.CompareTo(name3));
-        Console.WriteLine("{0} to {1}; Compare() method gives {2}", name1, name2, Compare(name1,name2));
-        Console.WriteLine("{0} to {1}; Compare() method gives {2}", name1, name2, Compare(name1,name3));
-
+        const double TAX_RATE = 0.06;
+        string itemPriceAsString;
+        double itemPrice;
+        double total;
+        Write("Enter the price of an item >> ");
+        itemPriceAsString = ReadLine();
+        itemPrice = Convert.ToDouble(itemPriceAsString);
+        total = itemPrice * TAX_RATE;
+        WriteLine("With a tax rate of {0}, a {1} item " +
+            "cost {2} more.", TAX_RATE, itemPrice.ToString("C"), total.ToString("C"));
     }
 }
