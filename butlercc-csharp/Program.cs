@@ -5,31 +5,23 @@ internal class DemoORAndAnd
 {
     private static void Main(string[] args)
     {
+        const int ZONE1 = 1, ZONE2 = 2;
+        const int LOW_QUANTITY = 10;
         string inputString;
-        int year;
-        int deliveryZone;;
-        WriteLine("Enter year: ");
+        int quantity;
+        int deliveryZone;
+        WriteLine("Delivery is free for zone {0} or {1}",
+            ZONE1, ZONE2);
+        WriteLine("Enter delivery zone ");
         inputString = ReadLine();
-        year = Convert.ToInt32(inputString);
-        switch(year)
-        {
-            case 1:
-                WriteLine("Freshman");
-                break;
-            case 2:
-                WriteLine("Sophomore");
-                break;
-            case 3:
-                WriteLine("Junior");
-                break;
-            case 4:
-                WriteLine("Senior");
-                break;
-            default:
-                WriteLine("Invalid Year");
-                break;
-
-        }    
+        deliveryZone = Convert.ToInt32(inputString);
+        WriteLine("Enter the number of boxes in the shipment");
+        inputString = ReadLine();
+        quantity = Convert.ToInt32(inputString);
+        if ((deliveryZone == ZONE1 || deliveryZone == ZONE2) && quantity < LOW_QUANTITY)
+                    WriteLine("Delivery is free");
+        else
+            WriteLine("A delivery chrage applies");
 
 
         }
