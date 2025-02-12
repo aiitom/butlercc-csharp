@@ -1,20 +1,27 @@
 ﻿// Program compares your name to the name of your boss
 using System;
 using static System.Console;
-internal class MovieDiscount
+internal class DemoORAndAnd
 {
     private static void Main(string[] args)
     {
-        int age = 10;
-        char rating = 'R';
-        const int CHILD_AGE = 12;
-        const int SENIOR_AGE = 65;
-        WriteLine("When age is {0} and rating is {1}",
-            age, rating);
-        if((age <= CHILD_AGE || age >= SENIOR_AGE) && rating == 'G')
-            WriteLine("Discount applies");
+        const int ZONE1 = 1, ZONE2 = 2;
+        const int LOW_QUANTITY = 10;
+        string inputString;
+        int quantity;
+        int deliveryZone;
+        WriteLine("Delivery is free for zone {0} or {1}",
+            ZONE1, ZONE2);
+        WriteLine("Enter delivery zone ");
+        inputString = ReadLine();
+        deliveryZone = Convert.ToInt32(inputString);
+        WriteLine("Enter the number of boxes in the shipment");
+        inputString = ReadLine();
+        quantity = Convert.ToInt32(inputString);
+        if ((deliveryZone == ZONE1 || deliveryZone == ZONE2) && quantity < LOW_QUANTITY)
+                    WriteLine("Delivery is free");
         else
-            WriteLine("Full price");
+            WriteLine("A delivery chrage applies");
 
 
         }
