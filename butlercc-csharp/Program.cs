@@ -1,20 +1,12 @@
-﻿using System;
+﻿// Program compares your name to the name of your boss
+using System;
 using static System.Console;
-class DemoVariables
-{
-    static void Main()
-    {
-        string name, firstString, secondString;
-        int first, second, sum;
-        Write("Enter your name... ");
-        name = ReadLine();
-        Write("Hello {0}! Enter the first integer... ", name);
-        firstString = ReadLine();
-        first = Int32.Parse(firstString);
-        Write("Enter the second integer... ");
-        secondString = ReadLine();
-        second = Int32.Parse(secondString);
-        sum = first + second;
-        WriteLine("{0}, the sum of {1} and {2} is {3}", name, first, second, sum);
-    }
-}
+const int HIGH = 10, LOW = 5;
+string numberString;
+int number;
+Write("Enter an interger ");
+numberString = ReadLine();
+number = Convert.ToInt32(numberString);
+if (number < LOW)
+    if (number < HIGH)
+        WriteLine("{0} is between {1} and {2}", number, LOW, HIGH);
