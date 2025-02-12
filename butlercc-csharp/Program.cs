@@ -10,11 +10,11 @@ internal class Program
         Write("Enter an age number ");
         numberString = ReadLine();
         age = Convert.ToInt32(numberString);
-        if (age >= 0 && age < 120)
-            WriteLine("Age is valid");
+        if (age < 0 || age > 120)
+            WriteLine("Age is not valid");
         else
         {
-            WriteLine("Age is invalid");
+            WriteLine("Age is valid");
 
 
         }
