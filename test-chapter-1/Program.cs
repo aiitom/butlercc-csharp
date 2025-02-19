@@ -1,8 +1,14 @@
-﻿using static System.Console;
-class Hello
+﻿using System;
+using static System.Console;
+using System.Globalization;
+class CheckMonth2
 {
     static void Main()
     {
-        Console.WriteLine("Hello, earth!");
+        // Write your code here
+        int number = 1;
+        while (number > 0) {
+            WriteLine("Hello");
+        }
     }
 }
