@@ -2,27 +2,28 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class LoopingBankBal
+class ValidID
 {
     static void Main()
     {
         // Write your code here
-        double bankBal = 1000;
-        const double INT_RATE = 0.04;
-        string inputString;
-        char response;
-        Write("Do you want to see your balance? Y or N...");
-        inputString = ReadLine();
-        response = Convert.ToChar(inputString);
-        while (response != 'Y' || response != 'y')
+        int idNum;
+        string input;
+        const int LOW = 1000;
+        const int HIGH = 9999;
+        Write("Enter an ID number: ");
+        input = ReadLine();
+        idNum = Convert.ToInt32(input);
+        while(idNum < LOW || idNum > HIGH)
         {
-            WriteLine("bankBal balance is {0}",
-                bankBal.ToString("C"));
-            bankBal = bankBal + bankBal * INT_RATE;
-            Write("Do you want to see next year's balance? Y or N...");
-            inputString = ReadLine();
-            response = Convert.ToChar(inputString);
+            Console.WriteLine("{0} is an invalid number", idNum);
+            Write("ID numbers must be ");
+            WriteLine("between {0} and {1} inclusive", LOW, HIGH);
+            Write("Enter an ID number: ");
+            input = ReadLine();
+            idNum = Convert.ToInt32(input);
+            WriteLine("ID number {0} is valid", idNum);
         }
-        WriteLine("Have a nice day!");
+    
         }
     }
