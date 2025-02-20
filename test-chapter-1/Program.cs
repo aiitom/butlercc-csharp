@@ -2,7 +2,7 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class TippingTable
+class TippingTable2
 {
     static void Main()
     {
@@ -33,7 +33,7 @@ class TippingTable
         tipRate = LOWRATE;
 
         // Generate the tipping table
-        while (dinnerPrice <= MAXDINNER)
+        do
         {
             Write("{0, 8}", dinnerPrice.ToString("C"));
 
@@ -47,5 +47,6 @@ class TippingTable
             tipRate = LOWRATE;
             WriteLine();
         }
+        while (dinnerPrice <= MAXDINNER);
     }
 }
