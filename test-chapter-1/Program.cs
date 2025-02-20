@@ -2,20 +2,28 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class FourHellos
+class ValidID
 {
     static void Main()
     {
         // Write your code here
-        int number = 1; // starting at 1 then keeps adding +1 til 5 makes 4 hellos, if int number = 0, they would show hello 5 times
-        const int LIMIT = 5;
-        // Limit sets a max number for 4 since int number equals 1
-        //while put the new that will be used from the bottom and the number<limit is bool
-
-        //curly braces surrond the body of the while loop, keep the expected output in that. Make sure to have no ";" in the while() part
-        while (number < LIMIT) {
-            WriteLine("Hello"); 
-            number = number + 1; //Can use number++, ++number or number += 1
+        int idNum;
+        string input;
+        const int LOW = 1000;
+        const int HIGH = 9999;
+        Write("Enter an ID number: ");
+        input = ReadLine();
+        idNum = Convert.ToInt32(input);
+        while(idNum < LOW || idNum > HIGH)
+        {
+            Console.WriteLine("{0} is an invalid number", idNum);
+            Write("ID numbers must be ");
+            WriteLine("between {0} and {1} inclusive", LOW, HIGH);
+            Write("Enter an ID number: ");
+            input = ReadLine();
+            idNum = Convert.ToInt32(input);
+            WriteLine("ID number {0} is valid", idNum);
+        }
+    
         }
     }
-}
