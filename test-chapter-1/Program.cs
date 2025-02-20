@@ -7,23 +7,21 @@ class ValidID
     static void Main()
     {
         // Write your code here
-        int idNum;
-        string input;
-        const int LOW = 1000;
-        const int HIGH = 9999;
-        Write("Enter an ID number: ");
-        input = ReadLine();
-        idNum = Convert.ToInt32(input);
-        while(idNum < LOW || idNum > HIGH)
+        //Declare loop control variable and limit
+        int x;
+        const int LIMIT = 10;
+
+        // Using a while loop to display 1 through 10
+        x = 1;
+        while(x <= LIMIT)
         {
-            Console.WriteLine("{0} is an invalid number", idNum);
-            Write("ID numbers must be ");
-            WriteLine("between {0} and {1} inclusive", LOW, HIGH);
-            Write("Enter an ID number: ");
-            input = ReadLine();
-            idNum = Convert.ToInt32(input);
-            WriteLine("ID number {0} is valid", idNum);
+            WriteLine(x);
+            ++x;
+        }
+
+        // Using a for loop to display 1 though 10
+        for(x = 1;  x <= LIMIT; ++x)
+            WriteLine(x);
         }
     
         }
-    }
