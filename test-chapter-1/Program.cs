@@ -2,29 +2,50 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class LoopingBankBal2
+class TippingTable
 {
     static void Main()
     {
-        double bankBal;
-        double rate;
-        int year;
-        const double START_BAL = 1000;
-        const double START_INT = 0.04;
-        const double INT_INCREASE = 0.02;
-        const double LAST_INT = 0.08;
-        const int END_YEAR = 5;
-        for (rate = START_INT; rate <= LAST_INT; rate += INT_INCREASE)
+        double dinnerPrice = 10.00;
+        double tipRate;
+        double tip;
+
+        const double LOWRATE = 0.10;
+        const double MAXRATE = 0.25;
+        const double TIPSTEP = 0.05;
+        const double MAXDINNER = 100.00;
+        const double DINNERSTEP = 10.00;
+
+        // Display table header
+        Write("   Price:");
+        for (tipRate = LOWRATE; tipRate <= MAXRATE; tipRate += TIPSTEP)
+            Write("{0, 8}", tipRate.ToString("F"));
+        WriteLine();
+
+        // Print 40 dashes for table separation
+        const int NUM_DASHES = 40;
+        for (int x = 0; x < NUM_DASHES; ++x)
         {
-            bankBal = START_BAL;
-            WriteLine("Starting bank balance is {0}",
-                bankBal.ToString("C"));
-            WriteLine(" Interest Rate: {0}", rate.ToString("P"));
-            for (year = 1; year <= END_YEAR; ++year)
+            Write("-");
+        }
+        WriteLine();
+
+        tipRate = LOWRATE;
+
+        // Generate the tipping table
+        while (dinnerPrice <= MAXDINNER)
+        {
+            Write("{0, 8}", dinnerPrice.ToString("C"));
+
+            while (tipRate <= MAXRATE)
             {
-                bankBal = bankBal + bankBal * rate;
-                WriteLine(" After year {0}, bank balance is {1}", year, bankBal.ToString("C"));
+                tip = dinnerPrice * tipRate;
+                Write("{0, 8}", tip.ToString("F"));
+                tipRate += TIPSTEP;
             }
+            dinnerPrice += DINNERSTEP;
+            tipRate = LOWRATE;
+            WriteLine();
         }
     }
 }
