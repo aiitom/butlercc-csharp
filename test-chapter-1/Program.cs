@@ -6,25 +6,19 @@ class LoopingBankBal2
 {
     static void Main()
     {
-        double bankBal;
-        double rate;
-        int year;
-        const double START_BAL = 1000;
-        const double START_INT = 0.04;
-        const double INT_INCREASE = 0.02;
-        const double LAST_INT = 0.08;
-        const int END_YEAR = 5;
-        for (rate = START_INT; rate <= LAST_INT; rate += INT_INCREASE)
+        int pos100;
+        int pos10;
+        int pos1;
+        const int MAX = 10;
+
+        for(pos100 = 0; pos100 < MAX; ++pos100)  //Outside loop
+            for(pos10 = 0; pos10 < MAX; ++pos10) //Repeats pos1 to do the same for pos100
+                for(pos1 = 0;pos1 < MAX; ++pos1) //MAX is 10 so when it reaches to MAX it adds +1 to pos10
         {
-            bankBal = START_BAL;
-            WriteLine("Starting bank balance is {0}",
-                bankBal.ToString("C"));
-            WriteLine(" Interest Rate: {0}", rate.ToString("P"));
-            for (year = 1; year <= END_YEAR; ++year)
-            {
-                bankBal = bankBal + bankBal * rate;
-                WriteLine(" After year {0}, bank balance is {1}", year, bankBal.ToString("C"));
-            }
+            WriteLine("-----------");
+            WriteLine("{0} - {1} - {2}", pos100, pos10, pos1);
+            WriteLine("-----------");
+            ReadLine(); //Waits for the user to press enter to move on to the next number
         }
     }
 }
