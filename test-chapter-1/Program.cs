@@ -2,29 +2,21 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class TotalPurchase
+using System.Diagnostics;
+class PrefixPostfixComparison
 {
     static void Main()
     {
-        double purchase;
-        double total = 0;
-
-        string inputString;
-
-        const double QUIT = 0;
-
-        Write("Enter purchase amount >> ");
-        inputString = ReadLine();
-        purchase = Convert.ToDouble(inputString);
-
-        while (purchase != QUIT)
-        {
-            total += purchase;
-            Write("Enter next purchase amount, or " +
-                QUIT + " to quit > ");
-            inputString = ReadLine();
-            purchase = Convert.ToDouble(inputString);
-        }
-        WriteLine("Your total is {0}", total.ToString("C"));
+        int LOOPS = 100000000;
+        Stopwatch sw = Stopwatch.StartNew();
+        for (int x = 0; x < LOOPS; ++x)
+            sw.Stop(); ;
+        Stopwatch sw2 = Stopwatch.StartNew();
+        for (int x = 0; x < LOOPS; x++) ;
+        sw2.Stop();
+        WriteLine("Time with prefix increment: {0} ms",
+            sw.Elapsed.TotalMilliseconds);
+        WriteLine("Time with postfix increment: {0} ms",
+            sw2.Elapsed.TotalMilliseconds);
     }
 }
