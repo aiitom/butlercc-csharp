@@ -2,51 +2,29 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class TippingTable2
+class TotalPurchase
 {
     static void Main()
     {
-        double dinnerPrice = 10.00;
-        double tipRate;
-        double tip;
+        double purchase;
+        double total = 0;
 
-        const double LOWRATE = 0.10;
-        const double MAXRATE = 0.25;
-        const double TIPSTEP = 0.05;
-        const double MAXDINNER = 100.00;
-        const double DINNERSTEP = 10.00;
+        string inputString;
 
-        // Display table header
-        Write("   Price:");
-        for (tipRate = LOWRATE; tipRate <= MAXRATE; tipRate += TIPSTEP)
-            Write("{0, 8}", tipRate.ToString("F"));
-        WriteLine();
+        const double QUIT = 0;
 
-        // Print 40 dashes for table separation
-        const int NUM_DASHES = 40;
-        for (int x = 0; x < NUM_DASHES; ++x)
+        Write("Enter purchase amount >> ");
+        inputString = ReadLine();
+        purchase = Convert.ToDouble(inputString);
+
+        while (purchase != QUIT)
         {
-            Write("-");
+            total += purchase;
+            Write("Enter next purchase amount, or " +
+                QUIT + " to quit > ");
+            inputString = ReadLine();
+            purchase = Convert.ToDouble(inputString);
         }
-        WriteLine();
-
-        tipRate = LOWRATE;
-
-        // Generate the tipping table
-        do
-        {
-            Write("{0, 8}", dinnerPrice.ToString("C"));
-
-            while (tipRate <= MAXRATE)
-            {
-                tip = dinnerPrice * tipRate;
-                Write("{0, 8}", tip.ToString("F"));
-                tipRate += TIPSTEP;
-            }
-            dinnerPrice += DINNERSTEP;
-            tipRate = LOWRATE;
-            WriteLine();
-        }
-        while (dinnerPrice <= MAXDINNER);
+        WriteLine("Your total is {0}", total.ToString("C"));
     }
 }
