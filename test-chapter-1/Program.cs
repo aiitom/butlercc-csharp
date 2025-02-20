@@ -2,23 +2,50 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-class LoopingBankBal2
+class TippingTable
 {
     static void Main()
     {
-        int pos100;
-        int pos10;
-        int pos1;
-        const int MAX = 10;
+        double dinnerPrice = 10.00;
+        double tipRate;
+        double tip;
 
-        for(pos100 = 0; pos100 < MAX; ++pos100)  //Outside loop
-            for(pos10 = 0; pos10 < MAX; ++pos10) //Repeats pos1 to do the same for pos100
-                for(pos1 = 0;pos1 < MAX; ++pos1) //MAX is 10 so when it reaches to MAX it adds +1 to pos10
+        const double LOWRATE = 0.10;
+        const double MAXRATE = 0.25;
+        const double TIPSTEP = 0.05;
+        const double MAXDINNER = 100.00;
+        const double DINNERSTEP = 10.00;
+
+        // Display table header
+        Write("   Price:");
+        for (tipRate = LOWRATE; tipRate <= MAXRATE; tipRate += TIPSTEP)
+            Write("{0, 8}", tipRate.ToString("F"));
+        WriteLine();
+
+        // Print 40 dashes for table separation
+        const int NUM_DASHES = 40;
+        for (int x = 0; x < NUM_DASHES; ++x)
         {
-            WriteLine("-----------");
-            WriteLine("{0} - {1} - {2}", pos100, pos10, pos1);
-            WriteLine("-----------");
-            ReadLine(); //Waits for the user to press enter to move on to the next number
+            Write("-");
+        }
+        WriteLine();
+
+        tipRate = LOWRATE;
+
+        // Generate the tipping table
+        while (dinnerPrice <= MAXDINNER)
+        {
+            Write("{0, 8}", dinnerPrice.ToString("C"));
+
+            while (tipRate <= MAXRATE)
+            {
+                tip = dinnerPrice * tipRate;
+                Write("{0, 8}", tip.ToString("F"));
+                tipRate += TIPSTEP;
+            }
+            dinnerPrice += DINNERSTEP;
+            tipRate = LOWRATE;
+            WriteLine();
         }
     }
 }
