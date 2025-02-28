@@ -2,28 +2,23 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
+using static System.Array;
 class FindPriceWithForLoop
 {
     static void Main()
     {
-        int[] validValues = { 101, 108, 201, 213, 266, 304, 311, 409, 411, 412 };
-        double[] prices = { 0.89, 1.23, 3.50, 0.69, 5.79, 3.19, 0.99, 0.89, 1.26, 8.00 };
-        int itemOrdered;
-        double itemPrice = 0;
-        bool isValidItem = false;
-        Write("Please enter an item :");
-        itemOrdered = Convert.ToInt32(ReadLine());
-        for (int x = 0; x < validValues.Length; ++x)
-        {
-            if (itemOrdered == validValues[x])
-            {
-                isValidItem = true;
-                itemPrice = prices[x];
-            }
-        }
-        if (isValidItem)
-            WriteLine("Price is {0}", itemPrice);
+        int[] idNumbers = { 122, 167, 204, 219, 345 };
+        int x;
+        string entryString;
+        int entryId;
+        Write("Enter an Employee ID: ");
+        entryString = ReadLine();
+        entryId = Convert.ToInt32(entryString);
+        x = Array.BinarySearch(idNumbers, entryId);
+        if (x < 0)
+            WriteLine("ID {0} not found", entryId);
         else
-            WriteLine("Sorry - item not found");
+            WriteLine("ID {0} found at position {1} ",
+                entryId, x);
     }
 }
