@@ -2,21 +2,17 @@
 using static System.Console;
 using System.Globalization;
 using System.Reflection.Metadata;
-using System.Diagnostics;
-class PrefixPostfixComparison
+class ArrayDemo1
 {
     static void Main()
     {
-        int LOOPS = 100000000;
-        Stopwatch sw = Stopwatch.StartNew();
-        for (int x = 0; x < LOOPS; ++x)
-            sw.Stop(); ;
-        Stopwatch sw2 = Stopwatch.StartNew();
-        for (int x = 0; x < LOOPS; x++) ;
-        sw2.Stop();
-        WriteLine("Time with prefix increment: {0} ms",
-            sw.Elapsed.TotalMilliseconds);
-        WriteLine("Time with postfix increment: {0} ms",
-            sw2.Elapsed.TotalMilliseconds);
+        double[] payRate = { 13.00, 17.35, 19.12, 22.45 };
+
+        for (int x = 0; x < payRate.Length; ++x)
+        {
+            WriteLine("Pay rate {0} is {1}.",
+                x, payRate[x].ToString("C"));
+        }
+
     }
 }
